@@ -45,11 +45,16 @@ const Lottery = () => {
 
   return (
     <>
+      {/* Title pages */}
       <PageMeta />
+
       <LotteryPage>
+        {/* Prizes tickets */}
         <PageSection background={TITLE_BG} index={1} hasCurvedDivider={false}>
           <Hero />
         </PageSection>
+
+        {/* Tickets now */}
         <PageSection
           containerProps={{ style: { marginTop: '-30px' } }}
           background={GET_TICKETS_BG}
@@ -78,9 +83,13 @@ const Lottery = () => {
             <NextDrawCard />
           </Flex>
         </PageSection>
+
+        {/* Connect wallet */}
         <PageSection background={CHECK_PRIZES_BG} hasCurvedDivider={false} index={2}>
           <CheckPrizesSection />
         </PageSection>
+
+        {/* History */}
         <PageSection
           innerProps={{ style: { margin: '0', width: '100%' } }}
           background={isDark ? FINISHED_ROUNDS_BG_DARK : FINISHED_ROUNDS_BG}
@@ -107,6 +116,8 @@ const Lottery = () => {
             )}
           </Flex>
         </PageSection>
+
+        {/* How to play */}
         <PageSection
           dividerPosition="top"
           dividerFill={{ light: theme.colors.background }}
