@@ -15,7 +15,7 @@ export const StyledUserMenu = styled(Flex)`
   cursor: pointer;
   display: inline-flex;
   height: 32px;
-  padding-left: 40px;
+  padding-left: 13px;
   padding-right: 8px;
   position: relative;
 

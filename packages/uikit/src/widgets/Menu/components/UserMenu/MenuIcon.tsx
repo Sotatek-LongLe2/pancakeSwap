@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import image from "next/image";
 import { Variant, variants } from "./types";
 import { Image } from "../../../../components/Image";
-import { RefreshIcon, WalletFilledIcon, WarningIcon } from "../../../../components/Svg";
+import { RefreshIcon, WalletFilledIcon, WarningIcon, ArrowDropDownIcon, ArrowDrop } from "../../../../components/Svg";
 import { Colors } from "../../../../theme/types";
+import arrow from "../../../../../../../public/images/drop-arrow-acc.svg";
 
 const MenuIconWrapper = styled.div<{ borderColor: keyof Colors }>`
   align-items: center;
@@ -34,9 +36,12 @@ const ProfileIcon = styled(Image)`
 `;
 
 export const NoProfileMenuIcon: React.FC = () => (
-  <MenuIconWrapper borderColor="primary">
+  <div style={{ display: "flex" }}>
+    <div style={{ color: "#919AAE", fontWeight: "500", marginTop: "7px" }}>V2</div>
+    {/* <image src={arrow} alt="" width={30} height={30} /> */}
+    <ArrowDrop style={{ marginTop: "12px", marginLeft: "2px" }} />
     <WalletFilledIcon color="primary" width="24px" />
-  </MenuIconWrapper>
+  </div>
 );
 
 export const PendingMenuIcon: React.FC = () => (

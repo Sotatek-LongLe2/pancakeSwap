@@ -19,7 +19,7 @@ export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
 const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType[] = (t, languageCode) => [
   {
-    label: t('Trade'),
+    label: t('Lend'),
     icon: SwapIcon,
     fillIcon: SwapFillIcon,
     href: '/swap',
@@ -45,7 +45,7 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     ],
   },
   {
-    label: t('Earn'),
+    label: t('Borrow'),
     href: '/farms',
     icon: EarnIcon,
     fillIcon: EarnFillIcon,
@@ -61,85 +61,32 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     ],
   },
   {
-    label: t('Win'),
-    href: '/prediction',
+    label: t('Lottery'),
+    href: '/lottery',
     icon: TrophyIcon,
     fillIcon: TrophyFillIcon,
-    items: [
-      {
-        label: t('Trading Competition'),
-        href: '/competition',
-      },
-      {
-        label: t('Prediction (BETA)'),
-        href: '/prediction',
-      },
-      {
-        label: t('Lottery'),
-        href: '/lottery',
-      },
-    ],
+    items: [],
   },
-  {
-    label: t('NFT'),
-    href: `${nftsBaseUrl}`,
-    icon: NftIcon,
-    fillIcon: NftFillIcon,
-    items: [
-      {
-        label: t('Overview'),
-        href: `${nftsBaseUrl}`,
-      },
-      {
-        label: t('Collections'),
-        href: `${nftsBaseUrl}/collections`,
-      },
-      {
-        label: t('Activity'),
-        href: `${nftsBaseUrl}/activity`,
-      },
-    ],
-  },
-  {
-    label: '',
-    href: '/info',
-    icon: MoreIcon,
-    hideSubNav: true,
-    items: [
-      {
-        label: t('Info'),
-        href: '/info',
-      },
-      {
-        label: t('IFO'),
-        href: '/ifo',
-      },
-      {
-        label: t('Voting'),
-        href: '/voting',
-      },
-      {
-        type: DropdownMenuItemType.DIVIDER,
-      },
-      {
-        label: t('Leaderboard'),
-        href: '/teams',
-      },
-      {
-        type: DropdownMenuItemType.DIVIDER,
-      },
-      {
-        label: t('Blog'),
-        href: 'https://medium.com/pancakeswap',
-        type: DropdownMenuItemType.EXTERNAL_LINK,
-      },
-      {
-        label: t('Docs'),
-        href: 'https://docs.pancakeswap.finance',
-        type: DropdownMenuItemType.EXTERNAL_LINK,
-      },
-    ],
-  },
+  // {
+  //   label: t('Staking'),
+  //   href: `${nftsBaseUrl}`,
+  //   icon: NftIcon,
+  //   fillIcon: NftFillIcon,
+  //   items: [
+  //     {
+  //       label: t('Overview'),
+  //       href: `${nftsBaseUrl}`,
+  //     },
+  //     {
+  //       label: t('Collections'),
+  //       href: `${nftsBaseUrl}/collections`,
+  //     },
+  //     {
+  //       label: t('Activity'),
+  //       href: `${nftsBaseUrl}/activity`,
+  //     },
+  //   ],
+  // },
 ]
 
 export default config

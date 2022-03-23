@@ -233,7 +233,7 @@ const Hero = () => {
             <PrizeTotalBalance fontSize="64px" bold prefix="$" value={prizeTotal} mb="8px" decimals={0} />
           )}
           <Heading mb="32px" scale="lg" color="#ffffff">
-            {t('in prizes!')}
+            {t('In prizes!')}
           </Heading>
         </>
       )
@@ -256,7 +256,7 @@ const Hero = () => {
         <img src="/images/lottery/ticket-r.png" width="121px" height="72px" alt="" />
       </StarsDecorations>
       <Heading mb="8px" scale="md" color="#ffffff" id="lottery-hero-title">
-        {t('The PancakeSwap Lottery')}
+        {t('CEEZEE Lottery')}
       </Heading>
       {getHeroHeading()}
       <TicketContainer

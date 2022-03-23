@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
+import Image from "next/image";
 import Flex from "../../../components/Box/Flex";
 import { LogoIcon, LogoWithTextIcon } from "../../../components/Svg";
 import { MenuContext } from "../context";
+import LogoPage from "../../../../../../public/images/ceeze.svg";
 
 interface Props {
   isDark: boolean;
@@ -46,10 +48,12 @@ const StyledLink = styled("a")`
 const Logo: React.FC<Props> = ({ isDark, href }) => {
   const { linkComponent } = useContext(MenuContext);
   const isAbsoluteUrl = href.startsWith("http");
+
   const innerLogo = (
     <>
       <LogoIcon className="mobile-icon" />
-      <LogoWithTextIcon className="desktop-icon" isDark={isDark} />
+      {/* <LogoWithTextIcon className="desktop-icon" isDark={isDark} /> */}
+      <Image src={LogoPage} />
     </>
   );
 
