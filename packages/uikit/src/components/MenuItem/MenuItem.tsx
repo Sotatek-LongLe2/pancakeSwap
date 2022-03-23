@@ -11,6 +11,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   isActive = false,
   variant = "default",
   statusColor,
+  hasItems,
   ...props
 }) => {
   const { linkComponent } = useContext(MenuContext);
@@ -33,7 +34,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
           {...props}
         >
           {children}
-          <Image src={downArrow} />
+          {hasItems && <Image src={downArrow} />}
         </StyledMenuItem>
       </StyledMenuItemContainer>
     </>
