@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { Box, Flex, Heading, Skeleton } from '@pancakeswap/uikit'
+import { Box, Flex, Heading, Skeleton, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { LotteryStatus } from 'config/constants/types'
 import PageSection from 'components/PageSection'
 import { useTranslation } from 'contexts/Localization'
@@ -25,6 +25,7 @@ import CheckPrizesSection from './components/CheckPrizesSection'
 import HowToPlay from './components/HowToPlay'
 import useShowMoreUserHistory from './hooks/useShowMoreUserRounds'
 import { PageMeta } from '../../components/Layout/Page'
+import BilliardBackGround from './components/BilliardBackground'
 
 const LotteryPage = styled.div`
   min-height: calc(100vh - 64px);
@@ -42,6 +43,7 @@ const Lottery = () => {
   const endTimeAsInt = parseInt(endTime, 10)
   const { nextEventTime, postCountdownText, preCountdownText } = useGetNextLotteryEvent(endTimeAsInt, status)
   const { numUserRoundsRequested, handleShowMoreUserRounds } = useShowMoreUserHistory()
+  const { isMobile, isMd } = useMatchBreakpoints();
 
   return (
     <>
@@ -50,26 +52,34 @@ const Lottery = () => {
 
       <LotteryPage>
         {/* Prizes tickets */}
-        <PageSection background={TITLE_BG} index={1} hasCurvedDivider={false}>
+        <BilliardBackGround />
+        <PageSection style={{ height: isMobile ? '440px' : '731px' }} index={1} hasCurvedDivider={false}>
           <Hero />
         </PageSection>
 
         {/* Tickets now */}
         <PageSection
-          containerProps={{ style: { marginTop: '-30px' } }}
+          containerProps={{ style: { marginTop: '0px' } }}
+          style={{ borderRadius: '7px' }}
+          innerProps={{ style: { paddingTop: '0px' } }}
           background={GET_TICKETS_BG}
           concaveDivider
           clipFill={{ light: '#7645D9' }}
           dividerPosition="top"
           index={2}
         >
-          <Flex alignItems="center" justifyContent="center" flexDirection="column" pt="24px">
+          <Flex style={{
+            borderRadius: '7px',
+            flexDirection: isMobile ? "column" : "row"
+          }} alignItems="center" justifyContent="center" pt="24px">
             {status === LotteryStatus.OPEN && (
               <Heading scale="xl" color="#ffffff" mb="24px" textAlign="center">
                 {t('Get your tickets now!')}
               </Heading>
             )}
-            <Flex alignItems="center" justifyContent="center" mb="48px">
+            <Flex style={{
+              marginLeft: isMobile ? "0" : "110px"
+            }} alignItems="center" justifyContent="center" mb="30px" >
               {nextEventTime && (postCountdownText || preCountdownText) ? (
                 <Countdown
                   nextEventTime={nextEventTime}
@@ -80,32 +90,41 @@ const Lottery = () => {
                 <Skeleton height="41px" width="250px" />
               )}
             </Flex>
-            <NextDrawCard />
           </Flex>
+          <NextDrawCard />
         </PageSection>
 
         {/* Connect wallet */}
-        <PageSection background={CHECK_PRIZES_BG} hasCurvedDivider={false} index={2}>
+        <PageSection style={{ margin: 'auto', borderRadius: '7px' }} background="#1F242C" hasCurvedDivider={false} index={2}>
           <CheckPrizesSection />
         </PageSection>
 
         {/* History */}
         <PageSection
           innerProps={{ style: { margin: '0', width: '100%' } }}
-          background={isDark ? FINISHED_ROUNDS_BG_DARK : FINISHED_ROUNDS_BG}
           hasCurvedDivider={false}
           index={2}
         >
+          <div style={{
+            position: 'absolute',
+            bottom: '-27%'
+          }}>
+            <img src='images/decorations/blur.png' />
+          </div>
           <Flex width="100%" flexDirection="column" alignItems="center" justifyContent="center">
-            <Heading mb="24px" scale="xl">
-              {t('Finished Rounds')}
-            </Heading>
-            <Box mb="24px">
-              <HistoryTabMenu
-                activeIndex={historyTabMenuIndex}
-                setActiveIndex={(index) => setHistoryTabMenuIndex(index)}
-              />
-            </Box>
+            <div style={{ display: isMobile ? '' : 'flex' }}>
+              <Heading style={{ fontSize: '30px' }} color="rgba(255, 255, 255, 0.87)" mb="24px" scale="xl" >
+                {t('Finished Rounds')}
+              </Heading>
+              <Box style={{
+                marginLeft: isMobile ? "0" : "378px",
+              }} mb="24px" >
+                <HistoryTabMenu
+                  activeIndex={historyTabMenuIndex}
+                  setActiveIndex={(index) => setHistoryTabMenuIndex(index)}
+                />
+              </Box>
+            </div>
             {historyTabMenuIndex === 0 ? (
               <AllHistoryCard />
             ) : (
@@ -124,7 +143,19 @@ const Lottery = () => {
           clipFill={{ light: '#9A9FD0', dark: '#66578D' }}
           index={2}
         >
+          <div style={{ position: 'absolute', bottom: '94.5%' }}>
+            <img src='images/decorations/path.png' />
+          </div>
+          <div style={{ position: 'absolute', bottom: '91%' }}>
+            <img src='images/decorations/path2.png' />
+          </div>
           <HowToPlay />
+          <div style={{ position: 'absolute', bottom: '72%' }}>
+            <img src='images/decorations/path3.png' />
+          </div>
+          <div style={{ position: 'absolute', bottom: '69%' }}>
+            <img src='images/decorations/path4.png' />
+          </div>
         </PageSection>
       </LotteryPage>
     </>

@@ -23,6 +23,7 @@ import logo from "../../../../../public/images/logo-cz.svg";
 import logo1 from "../../../../../public/images/safu.svg";
 import logo2 from "../../../../../public/images/tank.svg";
 import logo3 from "../../../../../public/images/bets.svg";
+import { useMatchBreakpoints } from "../../hooks";
 
 const MenuItem: React.FC<FooterProps> = ({
   items,
@@ -35,6 +36,8 @@ const MenuItem: React.FC<FooterProps> = ({
   buyCakeLabel,
   ...props
 }) => {
+  const { isMobile, isMd } = useMatchBreakpoints();
+
   return (
     <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} {...props} justifyContent="center">
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
@@ -63,11 +66,11 @@ const MenuItem: React.FC<FooterProps> = ({
             >
               Donec nec justo eget felis facilisis fermentum. Ali quam porttitor mauris...
             </div>
-            <div style={{ marginTop: "63px" }}>
+            {/* <div style={{ marginTop: "63px" }}>
               <Image src={logo1} width={103} height={28} />
               <Image src={logo2} width={103} height={28} />
               <Image src={logo3} width={103} height={28} />
-            </div>
+            </div> */}
           </Box>
 
           {items?.map((item) => (
@@ -94,10 +97,8 @@ const MenuItem: React.FC<FooterProps> = ({
             </StyledList>
           ))}
         </Flex>
+        <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
 
-        <StyledToolsContainer order={[1, null, 3]} justifyContent="space-between">
-          <div style={{ border: "1px solid #2C313D", width: "100%" }} />
-        </StyledToolsContainer>
         <StyledToolsContainer
           order={[1, null, 3]}
           flexDirection={["column", null, "row"]}

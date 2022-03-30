@@ -3,9 +3,12 @@ import { IconButton, ArrowForwardIcon, ArrowBackIcon, ArrowLastIcon, Flex, Headi
 import { useTranslation } from 'contexts/Localization'
 
 const StyledInput = styled(Input)`
-  width: 60px;
-  height: 100%;
+  width: 75px;
+  height: 35px;
   padding: 4px 16px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: '#1F242C';
 `
 
 const StyledIconButton = styled(IconButton)`
@@ -51,7 +54,10 @@ const RoundSwitcher: React.FC<RoundSwitcherProps> = ({
   return (
     <Flex alignItems="center" justifyContent="space-between">
       <Flex alignItems="center">
-        <Heading mr="8px">{t('Round')}</Heading>
+        <Heading style={{ fontSize: '18px' }} color="#FFFFFF" mr="8px">{t('Round')}</Heading>
+
+      </Flex>
+      <Flex alignItems="center">
         <StyledInput
           pattern="^[0-9]+$"
           inputMode="numeric"
@@ -62,8 +68,6 @@ const RoundSwitcher: React.FC<RoundSwitcherProps> = ({
           scale="lg"
           onChange={handleOnChange}
         />
-      </Flex>
-      <Flex alignItems="center">
         <StyledIconButton
           disabled={!selectedRoundIdAsInt || selectedRoundIdAsInt <= 1}
           onClick={() => handleArrowButtonPress(selectedRoundIdAsInt - 1)}

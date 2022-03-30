@@ -64,7 +64,7 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
         {prizeInBusd.isNaN() ? (
           <Skeleton my="7px" height={40} width={200} />
         ) : (
-          <Heading scale="xl" lineHeight="1" color="secondary">
+          <Heading scale="xl" lineHeight="1" color="#2AA2DF">
             ~${formatNumber(getBalanceNumber(prizeInBusd), 0, 0)}
           </Heading>
         )}
@@ -72,9 +72,10 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
           <Skeleton my="2px" height={14} width={90} />
         ) : (
           <Balance
+            marginTop="10px"
             fontSize="14px"
             color="textSubtle"
-            unit=" CAKE"
+            unit=" $SAFU"
             value={getBalanceNumber(lotteryNodeData?.amountCollectedInCake)}
             decimals={0}
           />
@@ -87,8 +88,8 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
     <NextDrawWrapper>
       <Flex mr="24px" flexDirection="column" justifyContent="space-between">
         <Box>
-          <Heading>{t('Prize pot')}</Heading>
-          {getPrizeBalances()}
+          <Heading color="#FFF">{t('Prize pot')}</Heading>
+          <div style={{ marginTop: '15px' }}>{getPrizeBalances()}</div>
         </Box>
         <Box mb="24px">
           <Flex>
@@ -103,6 +104,10 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
           </Flex>
         </Box>
       </Flex>
+      <div style={{
+        border: '1px solid #272E39',
+        marginRight: '30px'
+      }}></div>
       <RewardBrackets lotteryNodeData={lotteryNodeData} isHistoricRound />
     </NextDrawWrapper>
   )

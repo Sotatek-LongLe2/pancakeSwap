@@ -34,6 +34,9 @@ const Logo: React.FC<LogoProps> = ({ isDark, ...props }) => {
     //     fill="#633001"
     //   />
     // </Svg>
+    // <svg width="104" height="29" viewBox="0 0 104 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    // </svg>
     <Svg viewBox="0 0 1281 199" {...props}>
       <path
         fillRule="evenodd"

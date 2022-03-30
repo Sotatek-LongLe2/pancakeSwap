@@ -27,7 +27,7 @@ const Countdown: React.FC<CountdownProps> = ({ nextEventTime, preCountdownText, 
             hours={hours}
             days={days}
           />
-          {postCountdownText && <Heading color="#ffff">{postCountdownText}</Heading>}
+          {postCountdownText && <Heading style={{ fontSize: '16px', fontWeight: '500', margin: '0px 0px 16px 10px' }} color="#919AAE">{postCountdownText}</Heading>}
         </Flex>
       ) : (
         <Skeleton height="41px" width="250px" />

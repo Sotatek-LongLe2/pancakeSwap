@@ -22,7 +22,7 @@ interface BackgroundColorProps extends FlexProps {
   getPadding?: () => string
 }
 
-const BackgroundColor = styled(Flex)<BackgroundColorProps>`
+const BackgroundColor = styled(Flex) <BackgroundColorProps>`
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -93,7 +93,7 @@ const PageSection: React.FC<PageSectionProps> = ({
           dividerFill={dividerFill}
         />
       )}
-      <BackgroundColor background={background} index={index} getPadding={getPadding} {...props}>
+      <BackgroundColor background={background} index={index} getPadding={getPadding} style={props.style} {...props}>
         <ChildrenWrapper {...innerProps}>{children}</ChildrenWrapper>
       </BackgroundColor>
       {hasCurvedDivider && dividerPosition === 'bottom' && (

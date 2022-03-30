@@ -7,12 +7,8 @@ import {
   EarnIcon,
   TrophyIcon,
   TrophyFillIcon,
-  NftIcon,
-  NftFillIcon,
-  MoreIcon,
 } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
-import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { perpLangMap } from 'utils/getPerpetualLanguageCode'
 
 export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
@@ -65,6 +61,7 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     href: '/lottery',
     icon: TrophyIcon,
     fillIcon: TrophyFillIcon,
+    showItemsOnMobile: false,
     items: [],
   },
   // {

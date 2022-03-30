@@ -2,7 +2,7 @@ import { scales, variants } from "./types";
 
 export const scaleVariants = {
   [scales.MD]: {
-    height: "48px",
+    height: "35px",
     padding: "0 24px",
   },
   [scales.SM]: {
@@ -19,7 +19,11 @@ export const scaleVariants = {
 export const styleVariants = {
   [variants.PRIMARY]: {
     backgroundColor: "primary",
-    color: "white",
+    color: "black",
+  },
+  [variants.YELLOW]: {
+    background: "linear-gradient(180deg, #FFE81A 0%, #F0B90A 100%)",
+    color: "#12161B",
   },
   [variants.SECONDARY]: {
     backgroundColor: "transparent",

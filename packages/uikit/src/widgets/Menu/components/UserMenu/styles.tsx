@@ -3,7 +3,7 @@ import { UserMenuItemProps } from "./types";
 
 export const UserMenuDivider = styled.hr`
   border-color: ${({ theme }) => theme.colors.cardBorder};
-  border-style: solid;
+  border: 1px solid #272E39;
   border-width: 1px 0 0;
   margin: 4px 0;
 `;

@@ -38,13 +38,14 @@ const Grid = styled.div`
 
 const StyledCard = styled(Card)`
   width: 100%;
+  border-radius: 10px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 520px;
   }
 
   ${({ theme }) => theme.mediaQueries.md} {
-    width: 756px;
+    width: 870px;
   }
 `
 
@@ -87,24 +88,26 @@ const NextDrawCard = () => {
           <Skeleton my="7px" height={40} width={160} />
         ) : (
           <Balance
-            fontSize="40px"
-            color="secondary"
+            fontSize="32px"
+            color="#2AA3DF"
             textAlign={['center', null, null, 'left']}
             lineHeight="1"
             bold
             prefix="~$"
             value={getBalanceNumber(prizeInBusd)}
             decimals={0}
+            fontWeight='500'
           />
         )}
         {prizeInBusd.isNaN() ? (
           <Skeleton my="2px" height={14} width={90} />
         ) : (
           <Balance
+            marginTop="10px"
             fontSize="14px"
             color="textSubtle"
             textAlign={['center', null, null, 'left']}
-            unit=" CAKE"
+            unit=" $SAFU"
             value={getBalanceNumber(amountCollectedInCake)}
             decimals={0}
           />
@@ -138,24 +141,27 @@ const NextDrawCard = () => {
 
   return (
     <StyledCard>
-      <CardHeader p="16px 24px">
-        <Flex justifyContent="space-between">
-          <Heading mr="12px">{t('Next Draw')}</Heading>
-          <Text>
+      <CardHeader style={{ borderBottom: '1px solid #272E39' }} p="16px 24px">
+        <Flex flexDirection="column" justifyContent="space-between">
+          <Heading style={{ color: '#FFF', fontSize: '18px' }} mr="12px">{t('Next Draw')}</Heading>
+          <Text style={{ marginTop: '10px', fontSize: '14px' }}>
             {currentLotteryId && `#${getNextDrawId()}`} {Boolean(endTime) && getNextDrawDateTime()}
           </Text>
         </Flex>
       </CardHeader>
       <CardBody>
         <Grid>
-          <Flex justifyContent={['center', null, null, 'flex-start']}>
-            <Heading>{t('Prize Pot')}</Heading>
+          <Flex flexDirection="column">
+            <Flex justifyContent={['center', null, null, 'flex-start']}>
+              <Heading style={{ fontSize: '18px', color: '#FFF' }}>{t('Prize Pot')}</Heading>
+            </Flex>
+            <Flex flexDirection="column" mb="18px" mt="15px" >
+              {getPrizeBalances()}
+            </Flex>
           </Flex>
-          <Flex flexDirection="column" mb="18px">
-            {getPrizeBalances()}
-          </Flex>
-          <Box display={['none', null, null, 'flex']}>
-            <Heading>{t('Your tickets')}</Heading>
+          <Box style={{ marginLeft: '318px', flexDirection: 'column' }} display={['none', null, null, 'flex']}>
+            <Heading style={{ color: '#FFF', fontSize: '18px' }}>{t('Your tickets')}</Heading>
+            <BuyTicketsButton style={{ fontSize: '16px', color: '#FFF', background: '#29B2DE', marginTop: '15px' }} disabled={ticketBuyIsDisabled} maxWidth="143px" maxHeight="35px" />
           </Box>
           <Flex flexDirection={['column', null, null, 'row']} alignItems={['center', null, null, 'flex-start']}>
             {isLotteryOpen && (
@@ -190,7 +196,6 @@ const NextDrawCard = () => {
                 )}
               </Flex>
             )}
-            <BuyTicketsButton disabled={ticketBuyIsDisabled} maxWidth="280px" />
           </Flex>
         </Grid>
       </CardBody>

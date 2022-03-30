@@ -12,10 +12,10 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
         content: "";
         position: absolute;
         bottom: 0;
-        height: 4px;
+        height: 1px;
         width: 100%;
-        background-color: ${theme.colors.primary};
-        border-radius: 2px 2px 0 0;
+        background-color: #2A88DF;
+        border-radius: 0;
       }
     `};
 `;
@@ -27,7 +27,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
 
   color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
   font-size: 16px;
-  font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
+  font-weight: ${({ $isActive }) => ($isActive ? "500" : "500")};
 
   ${({ $statusColor, theme }) =>
     $statusColor &&
@@ -41,6 +41,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
       margin-left: 12px;
     }
   `}
+  
 
   ${({ $variant }) =>
     $variant === "default"

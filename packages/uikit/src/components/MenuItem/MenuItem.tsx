@@ -17,15 +17,15 @@ const MenuItem: React.FC<MenuItemProps> = ({
   const { linkComponent } = useContext(MenuContext);
   const itemLinkProps: unknown = href
     ? {
-        as: linkComponent,
-        href,
-      }
+      as: linkComponent,
+      href,
+    }
     : {
-        as: "div",
-      };
+      as: "div",
+    };
   return (
     <>
-      <StyledMenuItemContainer $isActive={isActive} $variant={variant}>
+      <StyledMenuItemContainer $isActive={isActive} $variant={'subMenu'}>
         <StyledMenuItem
           {...itemLinkProps}
           $isActive={isActive}

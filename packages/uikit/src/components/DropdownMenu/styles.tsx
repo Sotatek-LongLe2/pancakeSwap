@@ -61,7 +61,7 @@ export const DropdownMenuDivider = styled.hr`
 
 export const StyledDropdownMenu = styled.div<{ $isOpen: boolean; $isBottomNav: boolean }>`
   background-color: ${({ theme }) => theme.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  /* border: 1px solid ${({ theme }) => theme.colors.cardBorder}; */
   border-radius: 16px;
   padding-bottom: 4px;
   padding-top: 4px;
@@ -78,7 +78,7 @@ export const StyledDropdownMenu = styled.div<{ $isOpen: boolean; $isBottomNav: b
   `}
 `;
 
-export const LinkStatus = styled(Text)<{ color: keyof Colors }>`
+export const LinkStatus = styled(Text) <{ color: keyof Colors }>`
   border-radius: ${({ theme }) => theme.radii.default};
   padding: 0 8px;
   border: 2px solid;

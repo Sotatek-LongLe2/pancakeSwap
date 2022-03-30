@@ -15,13 +15,6 @@ const sharedStyles = (theme: DefaultTheme, clipPath: string, clipFill?: ClipFill
   height: 20px;
   clip-path: url(${clipPath});
 
-  background: ${() => {
-    if (theme.isDark) {
-      return clipFill?.dark || clipFill?.light || theme.colors.background
-    }
-    return clipFill?.light || theme.colors.background
-  }};
-
   & svg {
     display: block;
   }
