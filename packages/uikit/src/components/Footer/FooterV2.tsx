@@ -11,6 +11,7 @@ import {
   StyledText,
   StyledSocialLinks,
   StyledToolsContainer,
+  StyledListItem2,
 } from "./styles";
 import { FooterProps } from "./types";
 import { ThemeSwitcher } from "../ThemeSwitcher";
@@ -24,6 +25,7 @@ import logo1 from "../../../../../public/images/safu.svg";
 import logo2 from "../../../../../public/images/tank.svg";
 import logo3 from "../../../../../public/images/bets.svg";
 import { useMatchBreakpoints } from "../../hooks";
+
 
 const MenuItem: React.FC<FooterProps> = ({
   items,
@@ -39,7 +41,7 @@ const MenuItem: React.FC<FooterProps> = ({
   const { isMobile, isMd } = useMatchBreakpoints();
 
   return (
-    <StyledFooter p={["40px 16px", null, "56px 40px 32px 40px"]} {...props} justifyContent="center">
+    <StyledFooter p={["40px 16px", null, "56px 40px 0px 40px"]} {...props} justifyContent="center">
       <Flex flexDirection="column" width={["100%", null, "1200px;"]}>
         <StyledIconMobileContainer display={["block", null, "none"]}>
           <LogoWithTextIcon isDark width="130px" />
@@ -49,19 +51,21 @@ const MenuItem: React.FC<FooterProps> = ({
           flexDirection={["column", null, "row"]}
           justifyContent="space-between"
           alignItems="flex-start"
-          mb={["42px", null, "36px"]}
+          mb={["42px", null, "13px"]}
+          borderBottom={"1px solid #2C313D"}
         >
           <Box display={["none", null, "block"]}>
             <Image src={logo} width={103} height={28} />
             <div
               style={{
-                fontFamily: "Inter",
                 fontWeight: "500",
                 fontSize: "16px",
                 marginTop: "13px",
                 maxWidth: "312px",
                 color: "#919AAE",
                 marginLeft: "5px",
+                lineHeight: '150%',
+                marginBottom: '63px'
               }}
             >
               Donec nec justo eget felis facilisis fermentum. Ali quam porttitor mauris...
@@ -71,6 +75,8 @@ const MenuItem: React.FC<FooterProps> = ({
               <Image src={logo2} width={103} height={28} />
               <Image src={logo3} width={103} height={28} />
             </div> */}
+            <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "19px"]} />
+
           </Box>
 
           {items?.map((item) => (
@@ -78,7 +84,7 @@ const MenuItem: React.FC<FooterProps> = ({
               <StyledListItem>{item.label}</StyledListItem>
 
               {item.items?.map(({ label, href, isHighlighted = false }) => (
-                <StyledListItem key={label}>
+                <StyledListItem2 key={label}>
                   {href ? (
                     <Link
                       href={href}
@@ -92,35 +98,37 @@ const MenuItem: React.FC<FooterProps> = ({
                   ) : (
                     <StyledText>{label}</StyledText>
                   )}
-                </StyledListItem>
+                </StyledListItem2>
               ))}
             </StyledList>
           ))}
+
         </Flex>
-        <StyledSocialLinks order={[2]} pb={["42px", null, "32px"]} mb={["0", null, "32px"]} />
+
 
         <StyledToolsContainer
           order={[1, null, 3]}
           flexDirection={["column", null, "row"]}
           justifyContent="space-between"
         >
+
           <Flex order={[2, null, 1]} alignItems="center">
             <div
               style={{
-                marginTop: "13px",
                 fontFamily: "Inter",
                 fontWeight: "500",
                 fontSize: "12px",
                 color: "#919AAE",
-                marginLeft: "5px",
+                marginBottom: '15px',
               }}
             >
               © 2022 CEEZEE.IO
             </div>
           </Flex>
+
         </StyledToolsContainer>
       </Flex>
-    </StyledFooter>
+    </StyledFooter >
   );
 };
 

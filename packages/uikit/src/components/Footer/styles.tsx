@@ -18,6 +18,23 @@ export const StyledList = styled.ul`
 
 export const StyledListItem = styled.li`
   font-size: 16px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12px;
+  font-style: normal;
+
+  &:first-child {
+    font-family: Inter;
+    color: #fff;
+    font-weight: 500;
+    text-transform: normal;
+  }
+`;
+
+export const StyledListItem2 = styled.li`
+  font-size: 16px;
   margin-bottom: 8px;
   text-transform: capitalize;
   font-family: Inter;
@@ -54,7 +71,7 @@ export const StyledToolsContainer = styled(Flex)`
 `;
 
 export const StyledSocialLinks = styled(SocialLinks)`
-  border-bottom: 1px solid ${darkColors.cardBorder};
+  /* border-bottom: 1px solid #2C313D; */
 `;
 
 export const StyledText = styled.span`

@@ -12,7 +12,7 @@ import Balance from 'components/Balance'
 import RewardBrackets from '../RewardBrackets'
 
 const NextDrawWrapper = styled(Flex)`
-  background: ${({ theme }) => theme.colors.background};
+  background: #171B22;
   padding: 24px;
   flex-direction: column;
 
@@ -105,7 +105,7 @@ const PreviousRoundCardFooter: React.FC<{ lotteryNodeData: LotteryRound; lottery
         </Box>
       </Flex>
       <div style={{
-        border: '1px solid #272E39',
+        border: '0.5px solid #272E39',
         marginRight: '30px'
       }}></div>
       <RewardBrackets lotteryNodeData={lotteryNodeData} isHistoricRound />
