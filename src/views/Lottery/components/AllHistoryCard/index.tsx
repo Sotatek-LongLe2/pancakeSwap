@@ -13,6 +13,7 @@ import PreviousRoundCardFooter from '../PreviousRoundCard/Footer'
 
 const StyledCard = styled(Card)`
   width: 100%;
+  border-radius: 10px;
 
   ${({ theme }) => theme.mediaQueries.md} {
     width: 870px;
@@ -22,7 +23,7 @@ const StyledCard = styled(Card)`
 const StyledCardHeader = styled(CardHeader)`
   z-index: 2;
   background: none;
-  border-bottom: 1px ${({ theme }) => theme.colors.cardBorder} solid;
+  border-bottom: 1px solid #272E39;
 `
 
 const AllHistoryCard = () => {

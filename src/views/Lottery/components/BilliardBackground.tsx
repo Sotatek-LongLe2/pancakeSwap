@@ -53,7 +53,6 @@ const floatingTicketRight = keyframes`
 const StarsDecorations = styled(Box)`
   position: absolute;
   width: 100%;
-  height: 100%;
 
   & img {
     position: absolute;
@@ -194,24 +193,6 @@ const StarsDecorations = styled(Box)`
 export default function BilliardBackGround() {
   return (
     <div>
-      <div
-        style={{
-          position: 'absolute',
-          zIndex: '4',
-          top: '542px'
-        }}
-      >
-        <img src="/images/lottery/line1.png" alt="" />
-      </div>
-      <div
-        style={{
-          position: 'absolute',
-          zIndex: '3',
-          top: '589px'
-        }}
-      >
-        <img src="/images/lottery/line2.png" alt="" />
-      </div>
       <StarsDecorations display={['none', 'none', 'block']}>
         <img src="/images/lottery/billiard1.png" width="81px" height="81px" alt="" />
         <img src="/images/lottery/billiard2.png" width="125px" height="125px" alt="" />

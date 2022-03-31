@@ -68,18 +68,19 @@ const Lottery = () => {
           dividerPosition="top"
           index={2}
         >
-          <Flex style={{
-            borderRadius: '7px',
-            flexDirection: isMobile ? "column" : "row"
-          }} alignItems="center" justifyContent="center" pt="24px">
+          <Flex
+            style={{
+              borderRadius: '7px',
+              flexDirection: isMobile ? "column" : "row",
+              justifyContent: 'space-between'
+            }}
+            alignItems="center" justifyContent="center" pt="24px">
             {status === LotteryStatus.OPEN && (
-              <Heading scale="xl" color="#ffffff" mb="24px" textAlign="center">
+              <Heading fontSize="30px" color="#ffffff" mb="24px" textAlign="center">
                 {t('Get your tickets now!')}
               </Heading>
             )}
-            <Flex style={{
-              marginLeft: isMobile ? "0" : "110px"
-            }} alignItems="center" justifyContent="center" mb="30px" >
+            <Flex alignItems="center" justifyContent="center" mb="30px" >
               {nextEventTime && (postCountdownText || preCountdownText) ? (
                 <Countdown
                   nextEventTime={nextEventTime}
@@ -95,7 +96,13 @@ const Lottery = () => {
         </PageSection>
 
         {/* Connect wallet */}
-        <PageSection style={{ margin: 'auto', borderRadius: '7px' }} background="#1F242C" hasCurvedDivider={false} index={2}>
+        <PageSection style={{
+          margin: 'auto',
+          borderRadius: '7px',
+          maxWidth: '1098px',
+          maxHeight: '218px'
+        }}
+          background="#1F242C" hasCurvedDivider={false} index={2}>
           <CheckPrizesSection />
         </PageSection>
 
@@ -105,13 +112,19 @@ const Lottery = () => {
           hasCurvedDivider={false}
           index={2}
         >
-          <div style={{
-            position: 'absolute',
-            bottom: '-27%'
-          }}>
-            <img src='images/decorations/blur.png' />
-          </div>
+
           <Flex width="100%" flexDirection="column" alignItems="center" justifyContent="center">
+            <div style={{
+              position: 'absolute',
+              top: '-44%',
+              width: '100%',
+              height: '100%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center 0',
+              backgroundSize: '100% 100%'
+            }}>
+              <img src='images/decorations/blur.png' />
+            </div>
             <div style={{ display: isMobile ? '' : 'flex' }}>
               <Heading style={{ fontSize: '30px' }} color="rgba(255, 255, 255, 0.87)" mb="24px" scale="xl" >
                 {t('Finished Rounds')}

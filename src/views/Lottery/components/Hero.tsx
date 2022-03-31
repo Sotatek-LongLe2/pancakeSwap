@@ -122,6 +122,28 @@ const Hero = () => {
       <div style={{ position: 'absolute', zIndex: '3', bottom: '-73px', width: '100%' }}>
         <img src='/images/lottery/curve.svg' />
       </div>
+      <div
+        style={{
+          position: 'absolute',
+          zIndex: '4',
+          bottom: '39px',
+          width: '100%'
+          // top: '542px'
+        }}
+      >
+        <img src="/images/lottery/line1.png" alt="" />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          zIndex: '3',
+          bottom: 0,
+          width: '100%'
+          // top: '589px'
+        }}
+      >
+        <img src="/images/lottery/line2.png" alt="" />
+      </div>
     </Flex>
   )
 }

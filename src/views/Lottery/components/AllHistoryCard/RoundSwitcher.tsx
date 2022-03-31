@@ -9,6 +9,7 @@ const StyledInput = styled(Input)`
   border-radius: 5px;
   margin-right: 10px;
   background-color: '#1F242C';
+  border: 1px solid #2C313D
 `
 
 const StyledIconButton = styled(IconButton)`

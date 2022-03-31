@@ -30,12 +30,12 @@ const Wrapper: React.FC<TimerProps> = ({ minutes, hours, days, seconds, wrapperC
     <StyledTimerFlex alignItems="flex-end" className={wrapperClassName}>
       {Boolean(days) && (
         <>
-          <div style={{ position: 'relative' }}>
+          {/* <div style={{ position: 'relative' }}>
             <img src='/images/decorations/day-time.png' />
-          </div>
+          </div> */}
           <StyledTimerText
             style={{
-              position: 'absolute',
+              // position: 'absolute',
               display: 'flex',
               alignItems: 'baseline',
               fontSize: '32px',
@@ -46,47 +46,49 @@ const Wrapper: React.FC<TimerProps> = ({ minutes, hours, days, seconds, wrapperC
             {days}
             <StyledTimerText style={{ fontSize: '14px' }} mr="12px">{t('D')}</StyledTimerText>
           </StyledTimerText>
+          {/* <div style={{ margin: '0px 3px 20px', color: '#919AAE' }}>:</div> */}
         </>
       )}
-      <div style={{ margin: '0px 3px 20px', color: '#919AAE' }}>:</div>
       {Boolean(hours) && (
         <>
-          <div style={{ position: 'relative' }}>
+          {/* <div style={{ position: 'absolute', left: '706px' }}>
             <img src='/images/decorations/day-time.png' />
-          </div>
+          </div> */}
           <StyledTimerText
             style={{
-              position: 'absolute',
+              position: 'relative',
               display: 'flex',
               alignItems: 'baseline',
               fontSize: '32px',
-              marginLeft: '101px',
+              // marginLeft: '101px',
               marginBottom: '10px'
             }} mb="-4px" scale="xl" mr="4px">
             {hours}
             <StyledTimerText style={{ fontSize: '14px' }} mr="12px">{t('H')}</StyledTimerText>
           </StyledTimerText>
+          {/* <div style={{ margin: '0px 3px 20px', color: '#919AAE' }}>:</div> */}
         </>
       )}
-      <div style={{ margin: '0px 3px 20px', color: '#919AAE' }}>:</div>
       {Boolean(minutes) && (
         <>
-          <div style={{ position: 'relative' }}>
+          {/* <div style={{ margin: '0px 3px 20px', color: '#919AAE' }}>:</div>
+          <div style={{ position: 'absolute', left: '789px' }}>
             <img src='/images/decorations/day-time.png' />
-          </div>
+          </div> */}
           <StyledTimerText
             style={{
-              position: 'absolute',
+              position: 'relative',
               display: 'flex',
               alignItems: 'baseline',
               fontSize: '32px',
-              marginLeft: '171px',
+              // marginLeft: '171px',
               marginBottom: '10px'
             }}
             mb="-4px" scale="xl" mr="4px">
             {minutes}
             <StyledTimerText style={{ fontSize: '14px' }} mr="12px">{t('M')}</StyledTimerText>
           </StyledTimerText>
+
         </>
       )}
       {Boolean(seconds) && (

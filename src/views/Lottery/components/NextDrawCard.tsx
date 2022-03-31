@@ -13,6 +13,7 @@ import {
   Box,
   CardFooter,
   ExpandableLabel,
+  useMatchBreakpoints,
 } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { LotteryStatus } from 'config/constants/types'
@@ -50,7 +51,7 @@ const StyledCard = styled(Card)`
 `
 
 const NextDrawWrapper = styled.div`
-  background: ${({ theme }) => theme.colors.background};
+  background: #171B22;
   padding: 24px;
 `
 
@@ -73,6 +74,7 @@ const NextDrawCard = () => {
   const endDate = new Date(endTimeMs)
   const isLotteryOpen = status === LotteryStatus.OPEN
   const userTicketCount = userTickets?.tickets?.length || 0
+  const { isMobile, isMd } = useMatchBreakpoints();
 
   const getPrizeBalances = () => {
     if (status === LotteryStatus.CLOSE || status === LotteryStatus.CLAIMABLE) {
@@ -159,9 +161,46 @@ const NextDrawCard = () => {
               {getPrizeBalances()}
             </Flex>
           </Flex>
-          <Box style={{ marginLeft: '318px', flexDirection: 'column' }} display={['none', null, null, 'flex']}>
-            <Heading style={{ color: '#FFF', fontSize: '18px' }}>{t('Your tickets')}</Heading>
-            <BuyTicketsButton style={{ fontSize: '16px', color: '#FFF', background: '#29B2DE', marginTop: '15px' }} disabled={ticketBuyIsDisabled} maxWidth="143px" maxHeight="35px" />
+          <Box style={{ marginLeft: '138px', flexDirection: 'column' }} display={['none', null, null, 'flex']}>
+
+            {account ? (
+              <>
+                <Flex justifyContent={['center', null, null, 'flex-start']}>
+                  <Text style={{ color: '#FFF', fontSize: '18px' }} display="inline">{youHaveText} </Text>
+                  {!userTickets.isLoading ? (
+                    <Balance fontSize="18px" fontWeight="500" value={userTicketCount} decimals={0} display="inline" bold mx="4px" />
+                  ) : (
+                    <Skeleton mx="4px" height={20} width={40} />
+                  )}
+                  <Text style={{ color: '#FFF', fontSize: '18px' }} display="inline"> {ticketsThisRoundText}</Text>
+                </Flex>
+              </>
+
+            ) : (
+              <Heading style={{ color: '#FFF', fontSize: '18px' }}>{t('Your tickets')}</Heading>
+            )}
+            {!userTickets.isLoading && userTicketCount > 0 && (
+              <Button
+                onClick={onPresentViewTicketsModal}
+                height="auto"
+                width="fit-content"
+                p="0"
+                mb={['32px', null, null, '0']}
+                variant="text"
+                scale="sm"
+              >
+                {t('View your tickets')}
+              </Button>
+            )}
+            <BuyTicketsButton style={{
+              fontSize: '16px',
+              color: '#FFF',
+              background: 'linear-gradient(180deg, #2ABEDF 0%, #2A88DF 100%)',
+              marginTop: '15px',
+              whiteSpace: 'nowrap'
+            }}
+              disabled={ticketBuyIsDisabled} maxWidth="124px" maxHeight="35px" />
+
           </Box>
           <Flex flexDirection={['column', null, null, 'row']} alignItems={['center', null, null, 'flex-start']}>
             {isLotteryOpen && (
@@ -170,7 +209,7 @@ const NextDrawCard = () => {
                 mr={[null, null, null, '24px']}
                 alignItems={['center', null, null, 'flex-start']}
               >
-                {account && (
+                {/* {account && (
                   <Flex justifyContent={['center', null, null, 'flex-start']}>
                     <Text display="inline">{youHaveText} </Text>
                     {!userTickets.isLoading ? (
@@ -180,8 +219,8 @@ const NextDrawCard = () => {
                     )}
                     <Text display="inline"> {ticketsThisRoundText}</Text>
                   </Flex>
-                )}
-                {!userTickets.isLoading && userTicketCount > 0 && (
+                )} */}
+                {/* {!userTickets.isLoading && userTicketCount > 0 && (
                   <Button
                     onClick={onPresentViewTicketsModal}
                     height="auto"
@@ -193,8 +232,17 @@ const NextDrawCard = () => {
                   >
                     {t('View your tickets')}
                   </Button>
-                )}
+                )} */}
               </Flex>
+            )}
+            {isMobile && (
+              <BuyTicketsButton style={{
+                fontSize: '16px',
+                color: '#FFF',
+                background: '#29B2DE',
+                marginTop: '15px'
+              }}
+                disabled={ticketBuyIsDisabled} maxWidth="143px" maxHeight="35px" />
             )}
           </Flex>
         </Grid>
@@ -206,7 +254,7 @@ const NextDrawCard = () => {
           </NextDrawWrapper>
         )}
         {(status === LotteryStatus.OPEN || status === LotteryStatus.CLOSE) && (
-          <Flex p="8px 24px" alignItems="center" justifyContent="center">
+          <Flex style={{ borderTop: '1px solid #2C313D' }} p="8px 24px" alignItems="center" justifyContent="center">
             <ExpandableLabel expanded={isExpanded} onClick={() => setIsExpanded(!isExpanded)}>
               {isExpanded ? t('Hide') : t('Details')}
             </ExpandableLabel>

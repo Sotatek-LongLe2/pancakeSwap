@@ -71,21 +71,21 @@ const CheckPrizesSection = () => {
           <div style={{
             position: 'absolute',
             marginRight: '856px',
-            marginBottom: '155px',
+            marginBottom: '206px',
             zIndex: '2'
           }}>
             <img src="/images/decorations/image1.png" alt="lottery ticket" />
           </div>
           <div style={{
             position: 'absolute', marginRight: '488px',
-            marginBottom: '68px',
+            marginBottom: '120px',
             zIndex: '2'
           }}>
             <img src="/images/decorations/image2.png" alt="lottery ticket" />
           </div>
           <div style={{
             position: 'absolute', marginRight: '830px',
-            marginTop: '119px',
+            marginTop: '71px',
             zIndex: '2'
           }}>
             <img src="/images/decorations/image3.png" alt="lottery ticket" />
@@ -97,8 +97,8 @@ const CheckPrizesSection = () => {
             <img src="/images/decorations/elip1.png" alt="lottery ticket" />
           </div>
           <Flex style={{
-            marginLeft: '400px',
-            alignItems: 'flex-start'
+            marginLeft: '429px',
+            alignItems: 'flex-start',
           }} mx={['4px', null, '16px']} flexDirection="column" alignItems="center">
             <Heading textAlign="center" color="#F4EEFF">
               {t('Connect your wallet')}
@@ -111,9 +111,11 @@ const CheckPrizesSection = () => {
             style={{
               background: 'linear-gradient(180deg, #FFE81A 0%, #F0B90A 100%)',
               marginLeft: '61px',
-              zIndex: '2'
+              zIndex: '2',
+              padding: '5px 17px',
+              marginBottom: 'auto'
+
             }}
-            width="190px"
           />
         </Flex >
       )

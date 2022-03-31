@@ -41,7 +41,10 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
       {isLoading ? (
         <Skeleton mb="4px" mt="8px" height={16} width={80} />
       ) : (
-        <Text bold color={isBurn ? 'failure' : '#18A0FB'}>
+        <Text style={{
+          fontSize: '14px',
+          fontWeight: '500'
+        }} color={isBurn ? 'failure' : '#2ABEDF'}>
           {getRewardText()}
         </Text>
       )}

@@ -58,8 +58,10 @@ type Step = { title: string; subtitle: string; label: string }
 
 const StepCard: React.FC<{ step: Step }> = ({ step }) => {
   return (
-    <StyledStepCard width="100%">
-      <StepCardInner height={['200px', '180px', null, '200px']}>
+    <StyledStepCard width="100%" >
+      <StepCardInner style={{
+        borderRadius: '7px'
+      }} height={['200px', '180px', null, '200px']}>
         <Text mb="16px" fontSize="12px" bold textAlign="right" textTransform="uppercase">
           {step.label}
         </Text>
@@ -68,7 +70,7 @@ const StepCard: React.FC<{ step: Step }> = ({ step }) => {
         </Heading>
         <Text color="textSubtle">{step.subtitle}</Text>
       </StepCardInner>
-    </StyledStepCard>
+    </StyledStepCard >
   )
 }
 
@@ -223,17 +225,17 @@ const HowToPlay: React.FC = () => {
 
   const steps: Step[] = [
     {
-      label: t('Step %number%', { number: 1 }),
+      label: t('0%number%', { number: 1 }),
       title: t('Buy Tickets'),
-      subtitle: t('Prices are set when the round starts, equal to 5 USD in CAKE per ticket.'),
+      subtitle: t('Prices are set when the round starts, equal to 5 USD in SAFU per ticket.'),
     },
     {
-      label: t('Step %number%', { number: 2 }),
+      label: t('0%number%', { number: 2 }),
       title: t('Wait for the Draw'),
-      subtitle: t('There is one draw every day alternating between 0 AM UTC and 12 PM UTC.'),
+      subtitle: t('There is one draw every week at 12 PM, Saturday'),
     },
     {
-      label: t('Step %number%', { number: 3 }),
+      label: t('0%number%', { number: 3 }),
       title: t('Check for Prizes'),
       subtitle: t('Once the round’s over, come back to the page and check to see if you’ve won!'),
     },
@@ -241,15 +243,15 @@ const HowToPlay: React.FC = () => {
   return (
     <Box width="100%">
       <Flex mb="40px" alignItems="center" flexDirection="column">
-        <Heading mb="24px" scale="xl" color="secondary">
+        <Heading mb="24px" color="secondary">
           {t('How to Play')}
         </Heading>
         <Text textAlign="center">
           {t(
-            'If the digits on your tickets match the winning numbers in the correct order, you win a portion of the prize pool.',
+            'If the digits on your tickets match the winning numbers in the correct order,',
           )}
         </Text>
-        <Text>{t('Simple!')}</Text>
+        <Text>{t('you win a portion of the prize pool. Simple!')}</Text>
       </Flex>
       <StepContainer>
         {steps.map((step) => (
