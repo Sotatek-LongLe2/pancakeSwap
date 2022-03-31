@@ -25,7 +25,8 @@ const MenuItem: React.FC<MenuItemProps> = ({
     };
   return (
     <>
-      <StyledMenuItemContainer $isActive={isActive} $variant={'subMenu'}>
+      <StyledMenuItemContainer
+        $isActive={isActive} $variant={'subMenu'}>
         <StyledMenuItem
           {...itemLinkProps}
           $isActive={isActive}

@@ -11,7 +11,7 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
       &:after{
         content: "";
         position: absolute;
-        bottom: 0;
+        bottom: -7px;
         height: 1px;
         width: 100%;
         background-color: #2A88DF;

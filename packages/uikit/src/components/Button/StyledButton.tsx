@@ -72,12 +72,12 @@ const StyledButton = styled.button<BaseButtonProps>`
 
   ${getDisabledStyles}
   ${variant({
-    prop: "scale",
-    variants: scaleVariants,
-  })}
+  prop: "scale",
+  variants: scaleVariants,
+})}
   ${variant({
-    variants: styleVariants,
-  })}
+  variants: styleVariants,
+})}
   ${layout}
   ${space}
 `;

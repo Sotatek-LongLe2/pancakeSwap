@@ -248,10 +248,10 @@ export const BallTextWrapper = styled.div`
   position: absolute;
 `
 
-export const BallText = styled(Text)<{ rotationTransform?: number }>`
+export const BallText = styled(Text) <{ rotationTransform?: number }>`
   color: #000000;
   text-shadow: -0.75px -0.75px 0 white, 0.75px -0.75px 0 white, -0.75px 0.75px 0 white, 0.75px 0.75px 0 white;
-  transform: rotate(${({ rotationTransform }) => rotationTransform || 0}deg);
+  /* transform: rotate(${({ rotationTransform }) => rotationTransform || 0}deg); */
 `
 
 export type BallColor = 'pink' | 'lilac' | 'teal' | 'aqua' | 'green' | 'yellow'
