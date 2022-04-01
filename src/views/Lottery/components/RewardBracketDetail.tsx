@@ -52,7 +52,7 @@ const RewardBracketDetail: React.FC<RewardBracketDetailProps> = ({
         {isLoading || cakeAmount.isNaN() ? (
           <Skeleton my="4px" mr="10px" height={20} width={110} />
         ) : (
-          <Balance fontWeight="500" color='rgba(255, 255, 255, 0.87)' fontSize="20px" unit=" $SAFU" value={getBalanceNumber(cakeAmount)} decimals={0} />
+          <Balance fontWeight="500" color='rgba(255, 255, 255, 0.87)' fontSize="20px" unit=" SAFU" value={getBalanceNumber(cakeAmount)} decimals={0} />
         )}
         {isLoading || cakeAmount.isNaN() ? (
           <>

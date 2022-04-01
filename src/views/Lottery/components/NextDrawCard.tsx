@@ -99,6 +99,7 @@ const NextDrawCard = () => {
             value={getBalanceNumber(prizeInBusd)}
             decimals={0}
             fontWeight='500'
+            marginTop="4px"
           />
         )}
         {prizeInBusd.isNaN() ? (
@@ -109,7 +110,7 @@ const NextDrawCard = () => {
             fontSize="14px"
             color="textSubtle"
             textAlign={['center', null, null, 'left']}
-            unit=" $SAFU"
+            unit=" SAFU"
             value={getBalanceNumber(amountCollectedInCake)}
             decimals={0}
           />
@@ -143,7 +144,7 @@ const NextDrawCard = () => {
 
   return (
     <StyledCard>
-      <CardHeader style={{ borderBottom: '1px solid #272E39' }} p="16px 24px">
+      <CardHeader style={{ borderBottom: '1px solid #272E39' }} p="25px 35px">
         <Flex flexDirection="column" justifyContent="space-between">
           <Heading style={{ color: '#FFF', fontSize: '18px' }} mr="12px">{t('Next Draw')}</Heading>
           <Text style={{ marginTop: '10px', fontSize: '14px' }}>
@@ -151,7 +152,9 @@ const NextDrawCard = () => {
           </Text>
         </Flex>
       </CardHeader>
-      <CardBody>
+      <CardBody style={{
+        padding: "30px 40px"
+      }}>
         <Grid>
           <Flex flexDirection="column">
             <Flex justifyContent={['center', null, null, 'flex-start']}>
