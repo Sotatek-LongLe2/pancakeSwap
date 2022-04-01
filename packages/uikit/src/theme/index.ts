@@ -10,6 +10,7 @@ import { Breakpoints, Colors, MediaQueries, Radii, Shadows, Spacing, ZIndices } 
 
 export interface PancakeTheme {
   siteWidth: number;
+  layoutWidth: number;
   isDark: boolean;
   alert: AlertTheme;
   colors: Colors;

@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, useTheme } from 'styled-components'
 import Image from 'next/image'
 import { Box, Flex, Heading, Skeleton, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { LotteryStatus } from 'config/constants/types'
@@ -12,8 +12,7 @@ import BuyTicketsButton from './BuyTicketsButton'
 import prize from '../../../../public/images/prize-lotte.svg'
 
 const mainTicketAnimation = keyframes`
-  
-  
+
 `
 
 const TicketContainer = styled(Flex)`
@@ -58,9 +57,15 @@ const Decorations = styled.div`
   background-position: center 0;
   background-size: 100% 100%;
 `
-
+const StyleCurve = styled.div`
+  position: absolute;
+  z-index: 3;
+  bottom: -73px;
+  max-width: ${({ theme }) => `${theme.layoutWidth}px`};
+`
 const Hero = () => {
   const { t } = useTranslation()
+  const theme = useTheme();
   const {
     currentRound: { amountCollectedInCake, status },
     isTransitioning,
@@ -119,7 +124,10 @@ const Hero = () => {
       <div style={{ position: 'absolute', bottom: '-260px ' }}>
         <img src="/images/lottery/rotation.png" alt="" />
       </div>
-      <div style={{ position: 'absolute', zIndex: '3', bottom: '-73px', width: '100%' }}>
+      <div style={{
+        position: 'absolute', zIndex: '3', bottom: '-73px',
+        width: '1440px'
+      }}>
         <img src='/images/lottery/curve.svg' />
       </div>
       <div
@@ -127,7 +135,7 @@ const Hero = () => {
           position: 'absolute',
           zIndex: '4',
           bottom: '39px',
-          width: '100%'
+          maxWidth: `${theme.layoutWidth}px`,
           // top: '542px'
         }}
       >
@@ -138,7 +146,7 @@ const Hero = () => {
           position: 'absolute',
           zIndex: '3',
           bottom: 0,
-          width: '100%'
+          maxWidth: `${theme.layoutWidth}px`,
           // top: '589px'
         }}
       >

@@ -52,7 +52,12 @@ const floatingTicketRight = keyframes`
 
 const StarsDecorations = styled(Box)`
   position: absolute;
-  width: 100%;
+  max-width: ${({ theme }) => theme.layoutWidth}px;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin: auto;
+  
 
   & img {
     position: absolute;
